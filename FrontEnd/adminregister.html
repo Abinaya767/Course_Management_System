@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Register - LearnSpace</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#0B2447,#19376D);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+}
+
+.card{
+    width:100%;
+    max-width:550px;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+
+.card h2{
+    text-align:center;
+    color:#0B2447;
+    margin-bottom:30px;
+}
+
+.input-box{
+    margin-bottom:18px;
+}
+
+.input-box label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:500;
+    color:#333;
+}
+
+.input-box input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+}
+
+.input-box input:focus{
+    border-color:#19376D;
+}
+
+.terms{
+    margin:18px 0;
+    color:#333;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:30px;
+    background:#0B2447;
+    color:white;
+    font-size:16px;
+    font-weight:500;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#19376D;
+}
+
+.btn:disabled{
+    background:#8a9bb5;
+    cursor:not-allowed;
+}
+
+.message{
+    text-align:center;
+    margin-top:15px;
+    font-weight:500;
+}
+
+.login-link{
+    text-align:center;
+    margin-top:20px;
+}
+
+.login-link a{
+    color:#0B2447;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.login-link a:hover{
+    text-decoration:underline;
+}
+
+.back-btn{
+    width:40%;
+    margin:15px auto 0;
+    display:block;
+    padding:12px;
+    border:none;
+    border-radius:20px;
+    background:#E3ECFF;
+    color:#0B2447;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.back-btn:hover{
+    background:#C9DBFF;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h2>
+        <i class="fa-solid fa-user-shield"></i>
+        Admin Registration
+    </h2>
+
+    <form id="registerForm">
+
+        <div class="input-box">
+            <label>Admin ID</label>
+            <input
+                type="text"
+                id="adminId"
+                placeholder="Enter Admin ID">
+        </div>
+
+        <div class="input-box">
+            <label>Admin Name</label>
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter Admin Name">
+        </div>
+
+        <div class="input-box">
+            <label>Email Address</label>
+
+            <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+            oninvalid="this.setCustomValidity('Please enter your email in the format: example@gmail.com')"
+            oninput="this.setCustomValidity('')">
+        </div>
+
+        <div class="input-box">
+            <label>Password</label>
+            <input
+                type="password"
+                id="password"
+                placeholder="Create password">
+        </div>
+
+        <div class="input-box">
+            <label>Confirm Password</label>
+            <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm password">
+        </div>
+
+        <div class="terms">
+            <input type="checkbox" id="agree">
+            <label for="agree">
+                I agree to the Terms & Conditions
+            </label>
+        </div>
+
+        <button
+            type="submit"
+            class="btn"
+            id="registerBtn"
+            disabled>
+
+            Register & Continue
+
+        </button>
+
+        <p id="message" class="message"></p>
+
+    </form>
+
+    <div class="login-link">
+        Already have an account?
+        <a href="login.html">Login Here</a>
+    </div>
+
+    <button
+        class="back-btn"
+        onclick="window.location.href='index.html'">
+
+        <i class="fa-solid fa-house"></i>
+        Back to Home
+
+    </button>
+
+</div>
+
+<script>
+
+const checkbox = document.getElementById("agree");
+const button = document.getElementById("registerBtn");
+const form = document.getElementById("registerForm");
+const message = document.getElementById("message");
+
+checkbox.addEventListener("change", function () {
+    button.disabled = !this.checked;
+});
+
+form.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const adminId = document.getElementById("adminId").value.trim();
+
+    const name =
+    document.getElementById("name").value.trim();
+
+    const email =
+    document.getElementById("email").value.trim();
+
+    const password =
+    document.getElementById("password").value;
+
+    const confirmPassword =
+    document.getElementById("confirmPassword").value;
+
+    message.style.color = "red";
+
+    if(adminId === ""){
+        message.innerHTML = "Please enter Admin ID.";
+        return;
+    }
+
+    if(name === ""){
+        message.innerHTML = "Please enter Admin Name.";
+        return;
+    }
+
+    if(name.length < 3){
+        message.innerHTML = "Name must contain at least 3 characters.";
+        return;
+    }
+
+    const emailPattern =
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if(!emailPattern.test(email)){
+        message.innerHTML = "Please enter a valid email address.";
+        return;
+    }
+
+    if(password === ""){
+        message.innerHTML = "Please enter a password.";
+        return;
+    }
+
+    if(password.length < 6){
+        message.innerHTML = "Password must be at least 6 characters.";
+        return;
+    }
+
+    if(confirmPassword === ""){
+        message.innerHTML = "Please confirm your password.";
+        return;
+    }
+
+    if(password !== confirmPassword){
+        message.innerHTML = "Passwords do not match.";
+        return;
+    }
+
+    if(!checkbox.checked){
+        message.innerHTML = "Please accept the Terms & Conditions.";
+        return;
+    }
+
+    message.style.color = "green";
+    message.innerHTML =
+    "Admin Registration successful! Redirecting to login page...";
+
+    setTimeout(function(){
+        window.location.href = "login.html";
+    },1500);
+
+});
+
+</script>
+
+</body>
+</html>
