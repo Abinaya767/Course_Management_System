@@ -1,0 +1,145 @@
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    font-family: Arial, sans-serif;
+}
+
+.login-left {
+    width: 35%;
+    background: #5b21b6;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.login-left h2 {
+    margin-bottom: 25px;
+}
+
+.role-btn {
+    width: 220px;
+    padding: 14px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+    background: white;
+    color: #5b21b6;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.role-btn:hover {
+    background: #eee6ff;
+}
+
+.back-home {
+    margin-top: 30px;
+    color: white;
+    text-decoration: none;
+}
+
+.login-right {
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f7f5ff;
+}
+
+.welcome-content {
+    text-align: center;
+}
+
+.welcome-content h1 {
+    font-size: 36px;
+    color: #5b21b6;
+    margin-bottom: 15px;
+}
+
+.welcome-content p {
+    font-size: 18px;
+    color: #555;
+}
+.login-form-container {
+    width: 380px;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.login-form-container h1 {
+    text-align: center;
+    color: #5b21b6;
+    margin-bottom: 30px;
+}
+
+.login-form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form-container label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.login-form-container input {
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 15px;
+    outline: none;
+}
+
+.login-form-container input:focus {
+    border-color: #5b21b6;
+}
+
+.login-submit {
+    padding: 13px;
+    border: none;
+    border-radius: 7px;
+    background: #5b21b6;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.login-submit:hover {
+    background: #4c1d95;
+}
+
+.forgot-link {
+    display: block;
+    text-align: center;
+    margin-top: 18px;
+    color: #5b21b6;
+    text-decoration: none;
+}
+
+.login-form-container p {
+    text-align: center;
+    margin-top: 18px;
+    color: #555;
+}
+
+.login-form-container p a {
+    color: #5b21b6;
+    font-weight: bold;
+    text-decoration: none;
+}
